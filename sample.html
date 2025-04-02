@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COLLECTIONS</title>
+    <link rel="stylesheet" href="collection.css">
+    <style>
+    body {
+        background-color: black;
+        color: white;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .card-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        padding: 20px;
+    }
+    
+    .card {
+        background: white;
+        color: black;
+        border-radius: 10px;
+        padding: 15px;
+        width: 200px;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+    }
+    
+    .card img {
+        width: 100%;
+        border-radius: 5px;
+    }
+    
+    .cart-controls {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 10px 0;
+    }
+    
+    .quantity-btn {
+        background-color: red;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+    
+    .quantity-btn:hover {
+        background-color: darkred;
+    }
+    
+    .add-to-cart {
+        background-color: green;
+        color: white;
+        border: none;
+        padding: 10px;
+        width: 100%;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+    
+    .add-to-cart:hover {
+        background-color: darkgreen;
+    }
+    
+    .cart {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background-color: orange;
+        color: black;
+        padding: 10px 15px;
+        border-radius: 50%;
+        font-size: 20px;
+        cursor: pointer;
+        box-shadow: 0 4px 8px rgba(255, 165, 0, 0.5);
+    }
+    
+    .cart-count {
+        background-color: red;
+        color: white;
+        font-size: 14px;
+        padding: 3px 7px;
+        border-radius: 50%;
+        position: absolute;
+        top: -10px;
+        right: -10px;
+    }
+    
+    .cart-modal {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: white;
+        color: black;
+        padding: 20px;
+        border-radius: 10px;
+        width: 300px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        text-align: center;
+    }
+    
+    .close-btn {
+        background-color: red;
+        color: white;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        border-radius: 5px;
+        margin-top: 10px;
+    }
+    
+    .close-btn:hover {
+        background-color: darkred;
+    }
+    
+    .checkout-btn {
+        background-color: green;
+        color: white;
+        border: none;
+        padding: 10px;
+        width: 100%;
+        cursor: pointer;
+        border-radius: 5px;
+        margin-top: 10px;
+    }
+    
+    .checkout-btn:hover {
+        background-color: darkgreen;
+    }
+</style>
+</head>
+
+    <center><h2 style="font-size:50px; color: white; font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">TAMIL MOVIE POSTERS</h2></center>
+
+    <div class="cart" onclick="openCart()">
+        🛒 <span id="cart-count" class="cart-count">0</span>
+    </div>
+    
+    <div class="card-container">
+        <div class="card">
+            <img src="TAM POSTERS/annamalai.jpg" alt="Annamalai">
+            <div class="cart-controls">
+                <button class="quantity-btn" onclick="updateQuantity('annamalai', -1)">-</button>
+                <span id="quantity-annamalai">1</span>
+                <button class="quantity-btn" onclick="updateQuantity('annamalai', 1)">+</button>
+            </div>
+            <button class="add-to-cart" onclick="addToCart('annamalai')">Add to Cart</button>
+        </div>
+    </div>
+    
+    <div id="cart-modal" class="cart-modal">
+        <h3>Your Cart</h3>
+        <div id="cart-details">Your cart is empty!</div>
+        <button class="close-btn" onclick="closeCart()">Close</button>
+        <button id="checkout-btn" class="checkout-btn" onclick="checkout()">Checkout</button>
+    </div>
+    
+    <script>
+        let cart = {};
+        let selectedQuantities = {};
+        
+        function updateQuantity(item, change) {
+            if (!selectedQuantities[item]) {
+                selectedQuantities[item] = 1;
+            }
+            selectedQuantities[item] = Math.max(1, selectedQuantities[item] + change);
+            document.getElementById(`quantity-${item}`).innerText = selectedQuantities[item];
+        
+        if (cart[item]) {
+                cart[item] = selectedQuantities[item];
+                updateCartDisplay();
+            }
+        
+        }
+        
+        function addToCart(item) {
+            let quantity = selectedQuantities[item] || 1;
+
+            cart[item] = quantity;
+            // if (cart[item]) {
+            //     cart[item] += quantity;
+            // } else {
+            //     cart[item] = quantity;
+            // }
+            updateCartDisplay();
+        }
+        
+        function updateCartDisplay() {
+            let cartCount = Object.values(cart).reduce((a, b) => a + b, 0);
+            let cartCountElement = document.getElementById("cart-count");
+            let checkoutButton = document.getElementById("checkout-btn");
+        
+            if (cartCount > 0) {
+                cartCountElement.innerText = cartCount;
+                cartCountElement.style.display = "inline-block";
+                checkoutButton.style.display = "block";
+            } else {
+                cartCountElement.style.display = "none";
+                checkoutButton.style.display = "none";
+            }
+        }
+        
+        function openCart() {
+            let cartDetails = document.getElementById("cart-details");
+            if (Object.keys(cart).length > 0) {
+                cartDetails.innerHTML = Object.entries(cart)
+                    .map(([item, quantity]) => `<p>🛒 <strong>${item}:</strong> ${quantity} piece(s) <button onclick="removeFromCart('${item}')">-</button></p>`)
+                    .join("");
+            } else {
+                cartDetails.innerHTML = "Your cart is empty!";
+            }
+        
+            document.getElementById("cart-modal").style.display = "block";
+        }
+        
+        function removeFromCart(item) {
+            if (cart[item]) {
+                cart[item]--;
+                if (cart[item] === 0) {
+                    delete cart[item];
+                }
+            }
+            updateCartDisplay();
+            openCart();
+        }
+        
+        function closeCart() {
+            document.getElementById("cart-modal").style.display = "none";
+        }
+        
+        function checkout() {
+            if (Object.keys(cart).length === 0) {
+                alert("Your cart is empty!");
+                return;
+            }
+        
+            let phoneNumber = "9342808502";
+            let orderMessage = Object.entries(cart)
+                .map(([item, quantity]) => `${item}: ${quantity} piece(s)`)
+                .join("\n");
+        
+            let message = `Hello! I want to order:\n${orderMessage}\nPlease confirm my order.`;
+            let encodedMessage = encodeURIComponent(message);
+            let whatsappLink = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+        
+            window.open(whatsappLink, "_blank");
+        }
+    </script>
+</body>
+</html>
+
+
+

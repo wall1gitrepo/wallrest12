@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WALLREST</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+    <!-- <iframe src='https://my.spline.design/untitled-1ff67526b26b796381fd30a8ca5c37a4/' frameborder='0' width='100%' height='100%'></iframe>
+      -->
+      
+  <center><h2 class="t1" style="color: rgb(242, 164, 30); font-size: 30px;  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">WALLREST</h2></center> 
+
+  
+    <div class="cart" onclick="openCart()">
+        🛒 <span id="cart-count" class="cart-count">0</span>
+    </div>
+
+    <!-- Menu Button -->
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+
+
+  <div class="side-menu" id="sideMenu">
+    <!-- <a href="#home">Home</a> -->
+    <a href="#posters">DESIGNS</a>
+    <a href="#categories">COLLECTIONS</a>
+    <a href="#contact">CONTACT US</a>
+    <!-- <a href="#">About</a> -->
+  </div>
+<center><h3 style="color: aliceblue;">Customize your walls with posters of your style</h3></center>
+<div class="img1">
+ 
+</div>
+<br>
+
+
+<hr>
+
+
+<center><h2 id="posters" style="font-size:30px; color:rgb(242, 164, 30);; margin-top: 15px;">DESIGNS</h2></center>
+
+
+    <div class="card-container">
+  
+        <div class="card">
+            <img src="TAM POSTERS/vikram.jpg" alt="COCOMELON THEMED">
+        </div>
+
+        <div class="card">
+            <img src="FIGHT CLUB/FIGHT CLUB (6).jpeg" alt="CUSTOMIZED RED VELVET">
+        </div>
+
+        <div class="card">
+          <img src="ENG POSTERS/Interstellar Poster Design.jpeg" alt="CUSTOMIZED RED VELVET">
+      </div>
+
+      <div class="card">
+        <img src="AVENGERS/Daredevil.jpeg" alt="CUSTOMIZED RED VELVET">
+    </div>
+
+    <div class="card">
+        <img src="SPIDER MAN/785b0d30-42b2-4ec0-a7da-3cf8b993f9fb.jpeg" alt="CUSTOMIZED RED VELVET">
+    </div>
+
+    <div class="card">
+        <img src="CRICKET/CRICKET (1).jpeg" alt="CUSTOMIZED RED VELVET">
+    </div>
+    <div class="card">
+        <img src="TAMIL ACTORS/TA 45 (1).jpg" alt="CUSTOMIZED RED VELVET">
+    </div>
+    <div class="card">
+        <img src="BATMAN/BATMAN (7).jpeg" alt="CUSTOMIZED RED VELVET">
+    </div>
+</div>
+
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="cart-modal">
+        <h3>Your Cart</h3>
+        <div id="cart-details">Your cart is empty!</div>
+        <button class="close-btn" onclick="closeCart()">Close</button>
+        <button id="checkout-btn" class="checkout-btn" onclick="checkout()">Checkout</button>
+    </div>
+    <hr>
+    <h1 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; margin-left: 40px; color: rgb(239, 169, 39); font-size: 30px;" class="offer-text"> LIMITED TIME OFFER </h1>
+    
+    <div class="offers">
+      
+        <img class="offer-image" src="OWN DESIGN/—Pngtree—buy 2 get 1 free_6402695.png" alt="Buy 2 Get 1 Free"> 
+        <img class="offer-image" src="OWN DESIGN/3 5.png" alt="Buy 2 Get 1 Free">
+    </div> 
+  
+    <hr>
+    <center><h2 id="categories" style="font-size:30px; color:rgb(242, 164, 30);;">COLLECTIONS</h2></center>
+
+    <div class="card-container">
+        <div class="card">
+            
+        <img src="TAM POSTERS/TAM MOV FRONT.jpg"  alt="">
+        <!-- <button class="explore" onclick="">Explore</button> -->
+        <a href="collection.html"><button style="color: rgb(241, 237, 237); background-color: red; width: 100px; height: 40px; border-radius: 10px;" class="explore">Explore</button></a>
+    </div>
+    <div class="card">
+            
+        <img src="TAMIL ACTORS/ta front f.jpg"  alt="">
+        <!-- <button class="explore" onclick="">Explore</button> -->
+        <a href="tamilactors.html"><button style="color: rgb(241, 237, 237); background-color: red; width: 100px; height: 40px; border-radius: 10px;" class="explore">Explore</button></a>
+    </div>
+    <div class="card">
+            
+        <img src="ENG POSTERS/ENG FRONT.jpg"  alt="">
+        <!-- <button class="explore" onclick="">Explore</button> -->
+        <a href="engcollec.html"><button style="color: rgb(241, 237, 237); background-color: red; width: 100px; height: 40px; border-radius: 10px; " class="explore">Explore</button></a>
+    </div>
+    <div class="card">
+            
+        <img src="AVENGERS/AVENGER FRONT F.jpg"  alt="">
+        <!-- <button class="explore" onclick="">Explore</button> -->
+        <a href="avengercollec.html"><button style="color: rgb(241, 237, 237); background-color: red; width: 100px; height: 40px; border-radius: 10px; " class="explore">Explore</button></a>
+    </div>
+    <div class="card">
+            
+        <img src="FIGHT CLUB/FIGHT CLUB (10).jpg"  alt="">
+        <!-- <button class="explore" onclick="">Explore</button> -->
+        <a href="fightclub.html"><button style="color: rgb(241, 237, 237); background-color: red; width: 100px; height: 40px; border-radius: 10px; " class="explore">Explore</button></a>
+    </div>
+    <div class="card">
+            
+        <img src="BATMAN/BATMAN FRONT.jpg"  alt="">
+        <!-- <button class="explore" onclick="">Explore</button> -->
+        <a href="batman.html"><button style="color: rgb(241, 237, 237); background-color: red; width: 100px; height: 40px; border-radius: 10px; " class="explore">Explore</button></a>
+    </div>
+    <div class="card">
+            
+        <img src="CRICKET/CRICKET (3).jpg"  alt="">
+        <!-- <button class="explore" onclick="">Explore</button> -->
+        <a href="cricket.html"><button style="color: rgb(241, 237, 237); background-color: red; width: 100px; height: 40px; border-radius: 10px; ">Explore</button></a>
+    </div>
+    <div class="card">
+            
+        <img src="GTA/GTA FRONT.jpg"  alt="">
+        <!-- <button class="explore" onclick="">Explore</button> -->
+        <a href="gta.html"><button style="color: rgb(241, 237, 237); background-color: red; width: 100px; height: 40px; border-radius: 10px; " class="explore">Explore</button></a>
+    </div>
+
+    <div class="card">
+            
+        <img src="SPIDER MAN/SPIDEY FRONT.jpg"  alt="">
+        <!-- <button class="explore" onclick="">Explore</button> -->
+        <a href="spiderman.html"><button style="color: rgb(241, 237, 237); background-color: red; width: 100px; height: 40px; border-radius: 10px; " class="explore">Explore</button></a>
+    </div>
+
+    <div class="card">
+            
+        <img src="GYM/GYM FRONT.jpg"  alt="">
+        <!-- <button class="explore" onclick="">Explore</button> -->
+        <a href="gym.html"><button style="color: rgb(241, 237, 237); background-color: red; width: 100px; height: 40px; border-radius: 10px; " class="explore">Explore</button></a>
+    </div>
+    <div class="card">
+            
+        <img src="CARS/CAR FRONT.jpg"  alt="">
+        <!-- <button class="explore" onclick="">Explore</button> -->
+        <a href="CARS.HTML"><button style="color: rgb(241, 237, 237); background-color: red; width: 100px; height: 40px; border-radius: 10px; " class="explore">Explore</button></a>
+    </div>
+    <div class="card">
+            
+        <img src="BIKE/bike front f.jpg"  alt="">
+        <!-- <button class="explore" onclick="">Explore</button> -->
+        <a href="bike.html"><button style="color: rgb(241, 237, 237); background-color: red; width: 100px; height: 40px; border-radius: 10px; " class="explore">Explore</button></a>
+    </div>
+    <div class="card">
+            
+        <img src="ARTIST/EMA FRONT F.jpg"  alt="">
+        <!-- <button class="explore" onclick="">Explore</button> -->
+        <a href="engartist.html"><button style="color: rgb(241, 237, 237); background-color: red; width: 100px; height: 40px; border-radius: 10px; " class="explore">Explore</button></a>
+    </div>
+    <div class="card">
+            
+        <img src="TAM ARTIST/TMA F.jpg"  alt="">
+        <!-- <button class="explore" onclick="">Explore</button> -->
+        <a href="tamilartist.html"><button style="color: rgb(241, 237, 237); background-color: red; width: 100px; height: 40px; border-radius: 10px; " class="explore">Explore</button></a>
+    </div>
+    <div class="card">
+            
+        <img src="FOOTBALL/FOOTBALL FRONT .jpg"  alt="">
+        <!-- <button class="explore" onclick="">Explore</button> -->
+        <a href="football.html"><button style="color: rgb(241, 237, 237); background-color: red; width: 100px; height: 40px; border-radius: 10px; " class="explore">Explore</button></a>
+    </div>
+    <div class="card">
+            
+        <img src="GAMES/G FRONT.jpg"  alt="">
+        <!-- <button class="explore" onclick="">Explore</button> -->
+        <a href="games.html"><button style="color: rgb(241, 237, 237); background-color: red; width: 100px; height: 40px; border-radius: 10px; " class="explore">Explore</button></a>
+    </div>
+    <div class="card">
+            
+        <img src="QUOTES/QUOTES FRONT.jpg"  alt="">
+        <!-- <button class="explore" onclick="">Explore</button> -->
+        <a href="quotes.html"><button style="color: rgb(241, 237, 237); background-color: red; width: 100px; height: 40px; border-radius: 10px; " class="explore">Explore</button></a>
+    </div>
+    <div class="card">
+            
+        <img src="AESTHETICS/A FRONT .jpg"  alt="">
+        <!-- <button class="explore" onclick="">Explore</button> -->
+        <a href="aesthetics.html"><button style="color: rgb(241, 237, 237); background-color: red; width: 100px; height: 40px; border-radius: 10px; " class="explore">Explore</button></a>
+    </div>
+    <div class="card">
+            
+        <img src="bts/K FRONT .jpg"  alt="">
+        <!-- <button class="explore" onclick="">Explore</button> -->
+        <a href="bts.html"><button style="color: rgb(241, 237, 237); background-color: red; width: 100px; height: 40px; border-radius: 10px; " class="explore">Explore</button></a>
+    </div>
+    <div class="card">
+            
+        <img src="anime/AN FRONT.jpg"  alt="">
+        <!-- <button class="explore" onclick="">Explore</button> -->
+        <a href="anime.html"><button style="color: rgb(241, 237, 237); background-color: red; width: 100px; height: 40px; border-radius: 10px; " class="explore">Explore</button></a>
+    </div>
+
+
+</div>
+
+<div class="disc">
+    <p class="ask-text">
+        <em>Couldn't find your poster?</em>
+        <br><br>
+        <em>Need customized Posters?</em><br><br>
+        <a href="https://www.instagram.com/wallrest_23/profilecard/?igsh=a3lkeTRkYjVldzho" class="ask-button">ASK US</a>
+    </p>
+    <h2 class="disclaimer-title">DISCLAIMER</h2>
+    
+    <div class="scroll-container">
+        <p class="disclaimer-text">
+           The collections are for reference and inspired by various platforms and events. 
+            Availability of listed and unlisted items may vary. 
+            For inquiries, please send us a direct message (DM), and we will respond promptly with the necessary details.
+        </p>
+    </div>
+</div>
+
+
+
+
+    <BR><br><br>
+    <hr>
+    <br>
+    <center><h2 id="contact" style="font-size:30px; color: rgb(240, 166, 30);">CONTACT</h2></center>
+    <center> <h2 style="font-size:20px; text-align:center ;font-family: Georgia; color: white;">For Orders - Kindly Follow and DM in
+          
+      <div class="Follow">
+      <center><button class="followon"><a style="font-size:40px;" href="https://www.instagram.com/wallrest_23/profilecard/?igsh=a3lkeTRkYjVldzho "><i class="fa fa-instagram" style="font-size:48px;color:red"> wallrest_23</i></a></center></button>
+   
+    </div>
+      <div class="footer">
+        <a href="#">ORDER</a>
+        <a href="#">PASTE</a>
+        <a href="#">FASCINATE</a>
+        <p>&copy; WALLREST. CREATED  BY <a style="border: px solid white; width: auto; height: 40px; background-color: rgb(244, 242, 248); border-radius: 5px;" href="https://bharathsgitrepo.github.io/My-Portfolio-Webpage/">BHARATH R</a></p>
+        <!-- <p>CREATED BY BHARATH</p> -->
+
+      </div>
+    
+   
+   <script>
+
+
+
+         // Toggle Side Menu
+         function toggleMenu() {
+    var menu = document.getElementById("sideMenu");
+    if (menu.style.left === "0px") {
+        menu.style.left = "-250px"; // Hide the menu
+    } else {
+        menu.style.left = "0px"; // Show the menu
+    }
+}
+
+    // Smooth Scroll
+    document.querySelectorAll('.side-menu a').forEach(link => {
+        link.addEventListener('click', function(event) {
+            event.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+            window.scrollTo({
+                top: targetElement.offsetTop - 50,
+                behavior: "smooth"
+            });
+        });
+    });
+
+
+        let cart = {};
+        let selectedQuantities = {};
+
+        function updateQuantity(item, change) {
+            if (!selectedQuantities[item]) {
+                selectedQuantities[item] = 1;
+            }
+            selectedQuantities[item] = Math.max(1, selectedQuantities[item] + change);
+            document.getElementById(`quantity-${item}`).innerText = selectedQuantities[item];
+        }
+
+        function addToCart(item) {
+            let quantity = selectedQuantities[item] || 1;
+            if (cart[item]) {
+                cart[item] += quantity;
+            } else {
+                cart[item] = quantity;
+            }
+            updateCartDisplay();
+        }
+
+        function updateCartDisplay() {
+            let cartCount = Object.values(cart).reduce((a, b) => a + b, 0);
+            let cartCountElement = document.getElementById("cart-count");
+            let checkoutButton = document.getElementById("checkout-btn");
+
+            if (cartCount > 0) {
+                cartCountElement.innerText = cartCount;
+                cartCountElement.style.display = "inline-block";
+                checkoutButton.style.display = "block";
+            } else {
+                cartCountElement.style.display = "none";
+                checkoutButton.style.display = "none";
+            }
+        }
+
+        function openCart() {
+            let cartDetails = document.getElementById("cart-details");
+            if (Object.keys(cart).length > 0) {
+                cartDetails.innerHTML = Object.entries(cart)
+                    .map(([item, quantity]) => `<p>🛒 <strong>${item}:</strong> ${quantity} piece(s)</p>`)
+                    .join("");
+            } else {
+                cartDetails.innerHTML = "Your cart is empty!";
+            }
+
+            document.getElementById("cart-modal").style.display = "block";
+        }
+
+        function closeCart() {
+            document.getElementById("cart-modal").style.display = "none";
+        }
+
+        function checkout() {
+            if (Object.keys(cart).length === 0) {
+                alert("Your cart is empty!");
+                return;
+            }
+
+            let phoneNumber = "9342808502"; 
+            let orderMessage = Object.entries(cart)
+                .map(([item, quantity]) => `${item}: ${quantity} piece(s)`)
+                .join("\n");
+
+            let message = `Hello! I want to order:\n${orderMessage}\nPlease confirm my order.`;
+            let encodedMessage = encodeURIComponent(message);
+            let whatsappLink = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+            window.open(whatsappLink, "_blank");
+        }
+    </script>
+
+
+
+
+
+</body>
+</html>
