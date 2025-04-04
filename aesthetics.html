@@ -38,11 +38,11 @@
         <div class="card">
             <img src="AESTHETICS/ASTHETICS (1).jpg" alt="CUSTOMIZED RED VELVET">
             <div class="cart-controls">
-                <button class="quantity-btn" onclick="updateQuantity('AESTHETICS 1', -1)">-</button>
-                <span id="quantity-AESTHETICS 1" style="color: rgb(6, 6, 6);">1</span>
-                <button class="quantity-btn" onclick="updateQuantity('AESTHETICS 1', 1)">+</button>
+                <button class="quantity-btn" onclick="updateQuantity('AESTHETICS1', -1)">-</button>
+                <span id="quantity-AESTHETICS1" style="color: rgb(6, 6, 6);">1</span>
+                <button class="quantity-btn" onclick="updateQuantity('AESTHETICS1', 1)">+</button>
             </div>
-            <button class="add-to-cart" onclick="addToCart('AESTHETICS 1')">Add to Cart</button>
+            <button class="add-to-cart" onclick="addToCart('AESTHETICS1')">Add to Cart</button>
         </div>
         
         <div class="card">
@@ -292,7 +292,8 @@
         
         
         <script>
-                  document.addEventListener("DOMContentLoaded", function () {
+
+    document.addEventListener("DOMContentLoaded", function () {
     const menuIcon = document.querySelector(".menu-icon");
     const sideMenu = document.querySelector("#sideMenu");
 
@@ -301,96 +302,96 @@
     });
 });
 
-            let cart = {};
-            let selectedQuantities = {};
-            
-            function updateQuantity(item, change) {
-                if (!selectedQuantities[item]) {
-                    selectedQuantities[item] = 1;
-                }
-                selectedQuantities[item] = Math.max(1, selectedQuantities[item] + change);
-                document.getElementById(`quantity-${item}`).innerText = selectedQuantities[item];
-            
+        let cart = {};
+        let selectedQuantities = {};
+        
+        function updateQuantity(item, change) {
+            if (!selectedQuantities[item]) {
+                selectedQuantities[item] = 1;
+            }
+            selectedQuantities[item] = Math.max(1, selectedQuantities[item] + change);
+            document.getElementById(`quantity-${item}`).innerText = selectedQuantities[item];
+        
+        if (cart[item]) {
+                cart[item] = selectedQuantities[item];
+                updateCartDisplay();
+            }
+        
+        }
+        
+        function addToCart(item) {
+            let quantity = selectedQuantities[item] || 1;
+
+            cart[item] = quantity;
+            // if (cart[item]) {
+            //     cart[item] += quantity;
+            // } else {
+            //     cart[item] = quantity;
+            // }
+            updateCartDisplay();
+        }
+        
+        function updateCartDisplay() {
+            let cartCount = Object.values(cart).reduce((a, b) => a + b, 0);
+            let cartCountElement = document.getElementById("cart-count");
+            let checkoutButton = document.getElementById("checkout-btn");
+        
+            if (cartCount > 0) {
+                cartCountElement.innerText = cartCount;
+                cartCountElement.style.display = "inline-block";
+                checkoutButton.style.display = "block";
+            } else {
+                cartCountElement.style.display = "none";
+                checkoutButton.style.display = "none";
+            }
+        }
+        
+        function openCart() {
+            let cartDetails = document.getElementById("cart-details");
+            if (Object.keys(cart).length > 0) {
+                cartDetails.innerHTML = Object.entries(cart)
+                    .map(([item, quantity]) => `<p>🛒 <strong>${item}:</strong> ${quantity} piece(s) <button onclick="removeFromCart('${item}')">-</button></p>`)
+                    .join("");
+            } else {
+                cartDetails.innerHTML = "Your cart is empty!";
+            }
+        
+            document.getElementById("cart-modal").style.display = "block";
+        }
+        
+        function removeFromCart(item) {
             if (cart[item]) {
-                    cart[item] = selectedQuantities[item];
-                    updateCartDisplay();
-                }
-            
-            }
-            
-            function addToCart(item) {
-                let quantity = selectedQuantities[item] || 1;
-    
-                // cart[item] = quantity;
-                // if (cart[item]) {
-                //     cart[item] += quantity;
-                // } else {
-                //     cart[item] = quantity;
-                // }
-                updateCartDisplay();
-            }
-            
-            function updateCartDisplay() {
-                let cartCount = Object.values(cart).reduce((a, b) => a + b, 0);
-                let cartCountElement = document.getElementById("cart-count");
-                let checkoutButton = document.getElementById("checkout-btn");
-            
-                if (cartCount > 0) {
-                    cartCountElement.innerText = cartCount;
-                    cartCountElement.style.display = "inline-block";
-                    checkoutButton.style.display = "block";
-                } else {
-                    cartCountElement.style.display = "none";
-                    checkoutButton.style.display = "none";
+                cart[item]--;
+                if (cart[item] === 0) {
+                    delete cart[item];
                 }
             }
-            
-            function openCart() {
-                let cartDetails = document.getElementById("cart-details");
-                if (Object.keys(cart).length > 0) {
-                    cartDetails.innerHTML = Object.entries(cart)
-                        .map(([item, quantity]) => `<p>🛒 <strong>${item}:</strong> ${quantity} piece(s) <button onclick="removeFromCart('${item}')">-</button></p>`)
-                        .join("");
-                } else {
-                    cartDetails.innerHTML = "Your cart is empty!";
-                }
-            
-                document.getElementById("cart-modal").style.display = "block";
+            updateCartDisplay();
+            openCart();
+        }
+        
+        function closeCart() {
+            document.getElementById("cart-modal").style.display = "none";
+        }
+        
+        function checkout() {
+            if (Object.keys(cart).length === 0) {
+                alert("Your cart is empty!");
+                return;
             }
-            
-            function removeFromCart(item) {
-                if (cart[item]) {
-                    cart[item]--;
-                    if (cart[item] === 0) {
-                        delete cart[item];
-                    }
-                }
-                updateCartDisplay();
-                openCart();
-            }
-            
-            function closeCart() {
-                document.getElementById("cart-modal").style.display = "none";
-            }
-            
-            function checkout() {
-                if (Object.keys(cart).length === 0) {
-                    alert("Your cart is empty!");
-                    return;
-                }
-            
-                let phoneNumber = "9342808502";
-                let orderMessage = Object.entries(cart)
-                    .map(([item, quantity]) => `${item}: ${quantity} piece(s)`)
-                    .join("\n");
-            
-                let message = `Hello! I want to order:\n${orderMessage}\nPlease confirm my order.`;
-                let encodedMessage = encodeURIComponent(message);
-                let whatsappLink = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-            
-                window.open(whatsappLink, "_blank");
-            }
-        </script>
+        
+            let phoneNumber = "9342808502";
+            let orderMessage = Object.entries(cart)
+                .map(([item, quantity]) => `${item}: ${quantity} piece(s)`)
+                .join("\n");
+        
+            let message = `Hello! I want to order:\n${orderMessage}\nPlease confirm my order.`;
+            let encodedMessage = encodeURIComponent(message);
+            let whatsappLink = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+        
+            window.open(whatsappLink, "_blank");
+        }
+    </script>
     
 </body>
 </html>
